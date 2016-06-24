@@ -17,4 +17,12 @@ class HelloWorldController extends Controller
     {
         return "Hello world";
     }
+
+    /**
+     * @return string
+     */
+    public function holaMundo()
+    {
+        return "Hola mundo";
+    }
 }

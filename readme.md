@@ -25,3 +25,15 @@ heroku config:set DB_DATABASE=homestead
 heroku config:set DB_USERNAME=homestead
 
 heroku config:set DB_PASSWORD=secret
+
+##Run database migrations
+
+php artisan migrate
+
+### Create migrations
+
+php artisan make:migration create_category_table
+
+php artisan make:migration create_languages_per_country_table
+
+php artisan make:migration create_category_translation_table

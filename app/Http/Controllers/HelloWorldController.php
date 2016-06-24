@@ -11,7 +11,7 @@ use App\Http\Requests;
 class HelloWorldController extends Controller
 {
     /**
-     *
+     * @return string
      */
     public function helloWorld()
     {

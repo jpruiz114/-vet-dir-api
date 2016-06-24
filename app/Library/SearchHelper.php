@@ -2,7 +2,7 @@
 namespace App\Library;
 
 /**
- * Class Venues_SearchHelper
+ * Class SearchHelper
  */
 class SearchHelper {
     /**

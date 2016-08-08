@@ -80,7 +80,7 @@ class VenueSearch {
             $earthRadius = self::EARTH_MEAN_RADIUS_MILES;
         }
 
-        /*$sqlInstruction = "";
+        $sqlInstruction = "";
         $sqlInstruction .= "SELECT ";
         $sqlInstruction .= "entity_id, ";
         $sqlInstruction .= "($earthRadius * acos(cos(radians($currentLat)) * cos(radians(location_lat)) * cos(radians(location_lng) - radians($currentLng)) + sin(radians($currentLat)) * sin(radians(location_lat)))) AS distance ";
@@ -90,27 +90,9 @@ class VenueSearch {
         $sqlInstruction .= "HAVING distance < $distance ";
         $sqlInstruction .= "ORDER BY distance;";
 
-        $this->connect();
+        $results = DB::select(DB::raw($sqlInstruction));
 
-        $this->increaseInteractiveTimeoutTrait();
-        $this->increaseWaitTimeoutTrait();
-
-        $result = mysql_query($sqlInstruction);
-
-        $this->disconnect();
-
-        $venuesFound = array();
-
-        $i = 0;
-
-        while($row = mysql_fetch_array($result)) {
-            $entityId = $row["entity_id"];
-            $distance = $row["distance"];
-
-            $venuesFound[$i++] = array("distance" => $distance, "detail" => $this->getVenueDetail($entityId));
-        }
-
-        return $venuesFound;*/
+        return $results;
     }
 
     public function findCloseVeterinaries($currentLat, $currentLng, $searchUnit, $distance)

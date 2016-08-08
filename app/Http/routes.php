@@ -4,11 +4,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/* ***** */
-
-Route::get('/hello-word', HelloWorldController::class . '@helloWorld');
-Route::get('/hola-mundo', HelloWorldController::class . '@holaMundo');
-
 use App\Library\Categories\Category;
 
 use App\Library\Venues\VenueSearch;
@@ -37,14 +32,8 @@ Route::group(
             'venues/{category}/params/{params}',
             function($category, $params) {
                 $category = Category::where('foursquare_id_equivalent', $category)->get();
-                $categoryStr = print_r($category, true);
-                return $categoryStr;
 
-                //$categoryId = $category->entity_id;
-
-                //return $categoryId;
-
-                /*$keyValArray = explode("&", $params);
+                $keyValArray = explode("&", $params);
 
                 $paramsArray = array();
 
@@ -57,12 +46,22 @@ Route::group(
 
                         $paramsArray[$key] = $val;
                     }
-                }*/
+                }
 
-                //return VenueSearch::findCloseVenues();
+                try {
+                    $closeVenues = VenueSearch::findCloseVenues(
+                        $paramsArray["lat"],
+                        $paramsArray["lng"],
+                        $paramsArray["unit"],
+                        $category->entity_id,
+                        $paramsArray["distance"]
+                    );
+
+                    return json_encode($closeVenues);
+                } catch (Exception $e) {
+                    echo $e->getMessage();
+                }
             }
         );
     }
 );
-
-/* ***** */

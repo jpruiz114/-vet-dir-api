@@ -9,14 +9,20 @@ Route::get('/', function () {
 Route::get('/hello-word', HelloWorldController::class . '@helloWorld');
 Route::get('/hola-mundo', HelloWorldController::class . '@holaMundo');
 
-use App\Library\SearchHelper;
+use App\Library\Venues\VenueSearch;
 
 Route::group(
     ['prefix' => "test"],
     function() {
         Route::get(
-            '/search-helper/km', function() {
-                return SearchHelper::KILOMETER_SEARCH_UNIT;
+            '/venue-search/km', function() {
+                return VenueSearch::KILOMETER_SEARCH_UNIT;
+            }
+        );
+
+        Route::get(
+            '/venue-search/mi', function() {
+                return VenueSearch::MILE_SEARCH_UNIT;
             }
         );
     }

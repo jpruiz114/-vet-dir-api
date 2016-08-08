@@ -37,3 +37,5 @@ php artisan make:migration create_category_table
 php artisan make:migration create_languages_per_country_table
 
 php artisan make:migration create_category_translation_table
+
+php artisan make:migration create_venues_table

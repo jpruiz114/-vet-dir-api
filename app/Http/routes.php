@@ -33,7 +33,10 @@ Route::group(
             function($category, $params) {
                 $category = Category::where('foursquare_id_equivalent', $category)->get();
 
-                $categoryId = $category->entityId;
+                $categoryAttributes = $category->getAttributes();
+
+                $categoryId = $categoryAttributes['entity_id'];
+
                 return $categoryId;
 
                 //$categoryStr = print_r($category, true);

@@ -36,9 +36,9 @@ Route::group(
                 //return $categoryStr;
 
                 $categoryId = $category->getAttribute('entity_id');
-                return $categoryId;
+                //return $categoryId;
 
-                /*$keyValArray = explode("&", $params);
+                $keyValArray = explode("&", $params);
 
                 $paramsArray = array();
 
@@ -65,7 +65,7 @@ Route::group(
                     return json_encode($closeVenues);
                 } catch (Exception $e) {
                     echo $e->getMessage();
-                }*/
+                }
             }
         );
     }

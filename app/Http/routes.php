@@ -32,8 +32,12 @@ Route::group(
             'venues/{category}/params/{params}',
             function($category, $params) {
                 $category = Category::where('foursquare_id_equivalent', $category)->get();
-                $categoryStr = print_r($category, true);
-                return $categoryStr;
+
+                $categoryId = $category->get('entity_id');
+                return $categoryId;
+
+                //$categoryStr = print_r($category, true);
+                //return $categoryStr;
 
                 /*$keyValArray = explode("&", $params);
 

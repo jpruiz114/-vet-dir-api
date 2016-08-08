@@ -2,6 +2,8 @@
 
 namespace App\Library\Venues;
 
+use DB;
+
 /**
  * Class VenueSearch
  */

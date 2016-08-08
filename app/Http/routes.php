@@ -32,8 +32,10 @@ Route::group(
             'venues/{category}/params/{params}',
             function($category, $params) {
                 $category = Category::where('foursquare_id_equivalent', $category)->get();
+                $categoryStr = print_r($category, true);
+                return $categoryStr;
 
-                $keyValArray = explode("&", $params);
+                /*$keyValArray = explode("&", $params);
 
                 $paramsArray = array();
 
@@ -60,7 +62,7 @@ Route::group(
                     return json_encode($closeVenues);
                 } catch (Exception $e) {
                     echo $e->getMessage();
-                }
+                }*/
             }
         );
     }

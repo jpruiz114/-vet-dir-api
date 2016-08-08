@@ -40,7 +40,7 @@ Route::group(
                 $categoryStr = print_r($category, true);
                 return $categoryStr;
 
-                //$categoryId = $category->id;
+                //$categoryId = $category->entity_id;
 
                 //return $categoryId;
 

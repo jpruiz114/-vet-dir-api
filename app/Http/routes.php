@@ -31,7 +31,7 @@ Route::group(
         Route::get(
             'venues/{category}/params/{params}',
             function($category, $params) {
-                $category = Category::first(array('foursquare_id_equivalent' => $category));
+                $category = Category::where(array('foursquare_id_equivalent' => $category))->first();;
                 $categoryStr = print_r($category, true);
                 return $categoryStr;
 

@@ -17,6 +17,16 @@ class RouteServiceProvider extends ServiceProvider
     protected $namespace = 'App\Http\Controllers';
 
     /**
+     * @var string
+     */
+    protected $apiNamespace = 'App\Http\Controllers\Api';
+
+    /**
+     * @var string
+     */
+    protected $devNamespace = 'App\Http\Controllers\Dev';
+
+    /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @param  \Illuminate\Routing\Router  $router
@@ -52,10 +62,19 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes(Router $router)
     {
-        $router->group([
-            'namespace' => $this->namespace, 'middleware' => 'web',
-        ], function ($router) {
-            require app_path('Http/routes.php');
+        $router->group(
+            ['namespace' => $this->namespace, 'middleware' => 'web'],
+            function ($router) {
+                require app_path('Http/routes.php');
+            }
+        );
+
+        $router->group(['namespace' => $this->apiNamespace], function ($router) {
+            require app_path('Http/routes.api.php');
+        });
+
+        $router->group(['namespace' => $this->devNamespace], function ($router) {
+            require app_path('Http/routes.dev.php');
         });
     }
 }

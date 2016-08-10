@@ -1,3 +1,5 @@
+# vet dir api
+
 ##Generate key in .env file
 
 php artisan key:generate
@@ -39,3 +41,11 @@ php artisan make:migration create_languages_per_country_table
 php artisan make:migration create_category_translation_table
 
 php artisan make:migration create_venues_table
+
+## endpoints
+
+http://192.168.33.10/vet-dir-api/public/test/venue-search/km
+
+http://192.168.33.10/vet-dir-api/public/test/venue-search/mi
+
+http://192.168.33.10/vet-dir-api/public/v1/venues/5032897c91d4c4b30a586d69/params/lat=6.23&lng=-75.59&unit=Kilometers&distance=2

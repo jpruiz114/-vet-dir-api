@@ -44,10 +44,18 @@ php artisan make:migration create_venues_table
 
 ## endpoints
 
+### local environment
+
 http://192.168.33.10/vet-dir-api/public/test/venue-search/km
 
 http://192.168.33.10/vet-dir-api/public/test/venue-search/mi
 
 http://192.168.33.10/vet-dir-api/public/api/venues/5032897c91d4c4b30a586d69/params/lat=6.23&lng=-75.59&unit=Kilometers&distance=2
+
+### heroku hosting
+
+https://vet-dir-api.herokuapp.com/test/venue-search/km
+
+https://vet-dir-api.herokuapp.com/test/venue-search/mi
 
 https://vet-dir-api.herokuapp.com/api/venues/5032897c91d4c4b30a586d69/params/lat=6.23&lng=-75.59&unit=Kilometers&distance=2
